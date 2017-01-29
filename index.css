@@ -6,10 +6,12 @@
 	text-align: center;
 	margin-top: 0;
 	padding-bottom: 0.5em;
+	color: #5cb85c;
 }
 
 .jumbotron p {
 	margin: 0;
+	color: #02613F;
 }
 
 .center {
@@ -18,4 +20,18 @@
 
 .panel {
 	margin-top: 1em;
+}
+
+h4 a, p a {
+	color: #5cb85c;
+	text-decoration: underline;
+	transition: 0.5s linear;
+}
+
+h4 a:hover, p a:hover{
+	color: #02613F;
+}
+
+p > em {
+	font-size: 0.8em;
 }
