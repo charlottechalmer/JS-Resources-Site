@@ -2,15 +2,15 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>JS Development Resources</title>
+	<title>JS+ Development Resources</title>
 	<link rel="stylesheet" type="text/css" href="index.css">
 	<link rel="stylesheet" media="screen" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css">
-	<script src="index.js"></script>
+	
 </head>
 <body>
 	<div class="container">
 		<div class="jumbotron">
-			<h2>JavaScript Development Resources</h2>
+			<h2>JavaScript (&amp; more!) Development Resources</h2>
 			<p>
 				After graduating from CodeCraft School of Technology's full-stack web development certification program, I began bookmarking a number of sites that have proven to be useful in my development. I have built this site to have them all in one place!
 			</p>
@@ -21,33 +21,41 @@
 		<div class="row">
 			<div class="col-lg-6 col-lg-offset-3">
 				<div class="input-group">
-					<input type="text" class="form-control" placeholder="Search by tag...">
+					<input type="text" class="form-control" id="searchInput" placeholder="Search by tag...">
 					<span class="input-group-btn">
-						<button type="button" class="btn btn-success">Search</button>
+						<button type="button" class="btn btn-success" id="searchButton">Search</button>
 						<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Topics <span class="caret"></span></button>
 						<ul class="dropdown-menu">
-							<li><a href="#">Coding Community</a></li>
-							<li><a href="#">Learn To Code</a></li>
-							<li><a href="#">Framework &amp; Language Documentation</a></li>
-							<li><a href="#">Practice Problems</a></li>
-							<li><a href="#">Interview Resources</a></li>
-							<li><a href="#">Big O Resources</a></li>
-							<li><a href="#">Styling Resources</a></li>
-							<li><a href="#">Algorithm Resources</a></li>
+							<li><a id="codingCommunityNav">Coding Community</a></li>
+							<li><a id="learnToCodeNav">Learn To Code</a></li>
+							<li><a id="frameworkDocNav">Framework &amp; Language Documentation</a></li>
+							<li><a id="practiveProbsNav">Practice Problems</a></li>
+							<li><a id="interviewNav">Interview Resources</a></li>
+							<li><a id="bigONav">Big O Resources</a></li>
+							<li><a id="styleNav">Styling Resources</a></li>
+							<li><a id="miscNav">Miscellaneous Resources</a></li>
+							<li><a id="booksNav">Development Book PDFs</a></li>
 						</ul>
 					</span>
 				</div><!-- /input-group -->
+				<small><a id="availableTags" tabindex="0" data-toggle="popover" data-trigger="focus" data-placement='bottom' title="Tag Examples: (not all available tags)" data-content="JavaScript, algorithms, books, design, HTML, Big-O Complexity, tutorials, Angular, version control, practice problems, styling, frameworks, problems, games, optimization, courses, tutorial, free courses">Click for tag examples</a></small>
 			</div><!-- /.col-lg-6 -->
 		</div><!-- /.row -->
 		<div class="row">
-			<div class="codingCommunity">
-				<div class="panel panel-success">
+			
+			<div class="alertPlaceholder"></div>
+			<div class="tagSearchResult hide">
+				
+			</div>
+
+			<div class="codingCommunity" style="display: none">
+				<div class="panel panel-success community social communities">
 					<div class="panel-heading center">
 						<h3>Coding Community</h3>
 						<p>Here, you will find resources that connect fellow developers</p>
 					</div> <!-- ./panel-heading -->
 					<div class="panel-body">
-						<div class="panel panel-success">
+						<div class="panel panel-success stack-overflow forum">
   							<div class="panel-body">
   								<h4><a href="http://stackoverflow.com/">Stack Overflow</a></h4>
   								<p>Stack Overflow is the most popular community for programmers that allows users to post programming questions and have other programmers post answers in response.</p> 
@@ -55,31 +63,31 @@
   								<p>As described by it's creators, "Stackoverflow is sort of like the anti-experts-exchange (minus the nausea-inducing sleaze and quasi-legal search engine gaming) meets wikipedia meets programming reddit. It is by programmers, for programmers, with the ultimate intent of collectively increasing the sum total of good programming knowledge in the world."</p>
 							</div>
 						</div>
-						<div class="panel panel-success">
+						<div class="panel panel-success github version-control git">
   							<div class="panel-body">
   								<h4><a href="https://github.com/">GitHub</a></h4>
   								<p>GitHub is an awesome resource for any programmer. It is a web-based code hosting service that easily allows for version control and collaboration between users.</p>
 							</div>
 						</div>
-						<div class="panel panel-success">
+						<div class="panel panel-success forum">
   							<div class="panel-body">
   								<h4><a href="https://freenode.net/">freenode</a></h4>
   								<p>Freenode is an free and open source IRC (Internet Relay Chat) network that is used to discuss peer-directed projects.</p>
 							</div>
 						</div>
-						<div class="panel panel-success">
+						<div class="panel panel-success events design ux">
   							<div class="panel-body">
   							  	<h4><a href="https://aneventapart.com/">An Event Apart</a></h4>
   							  	<p>An Event Apart is a conference focused on building development skills in the company of other professionals. With conferences held across the United States, they have a bunch of awesome speakers covering anything from UX design to full-stack development and everything in between.</p>
 							</div>
 						</div>
-						<div class="panel panel-success">
+						<div class="panel panel-success twitter events">
   							<div class="panel-body">
   								<h4><a href="https://dev.twitter.com/community">Twitter Developer Community</a></h4>
   								<p>The Twitter developer community has many resources available including <a href="https://dev.twitter.com/community/meetups">connecting</a> with your local community of developers, <a href="https://twittercommunity.com/">developer forums</a>, and a number of <a href="https://dev.twitter.com/events"> events</a> for developers.</p>
 							</div>
 						</div>
-						<div class="panel panel-success">
+						<div class="panel panel-success reddit forum">
   							<div class="panel-body">
   								<h4><a href="https://www.reddit.com/r/programming/">Programming Sub-Reddit</a></h4>
   								<p>Anyone who knows anything about Reddit knows that it is a forum where users can- literally- discuss anything. The incredible popularity of Reddit (the site averages 110,000,000 monthly visitors) means that the programming sub-reddit's material will cover different topics depending on the day, but can be a useful resource for interesting links, questions and information regarding programming.</p>
@@ -92,53 +100,65 @@
 				</div> <!-- ./panel -->	
 			</div> <!-- ./codingCommunity-->
 
-			<div class="learnToCode">
-				<div class="panel panel-success">
+			<div class="learnToCode" style="display: none">
+				<div class="panel panel-success learn learn-to-code">
 					<div class="panel-heading center">
 						<h3>Learn to Code</h3>
 						<p>Here, you will find resources for learning to code</p>
 					</div> <!-- ./panel-heading -->
 					<div class="panel-body">
-						<div class="panel panel-success">
+						<div class="panel panel-success codecademy code-academy">
   							<div class="panel-body">
   								<h4><a href="https://www.codecademy.com/">Codecademy</a></h4>
   								<p>Codecademy is an awesome resource that allows you to choose which languages you want to learn. Each language is split up into smaller modules and challenges. You also have the option of paying for Pro which gets you a personalized learning plan, quizzes, projects and advisors.</p>
 							</div>
 						</div>
-						<div class="panel panel-success">
+						<div class="panel panel-success codewars code-wars game games">
   							<div class="panel-body">
   								<h4><a href="https://www.codewars.com/">Code Wars</a></h4>
   								<p>Code Wars is a site that utilizes kata, an exercise that helps a user hone their skills through practice and repetition. A user can increase their rank through traning and completing kata at or above your rank- the harder the kata, the faster you advance.</p>
 							</div>
 						</div>
-						<div class="panel panel-success">
+						<div class="panel panel-success codecombat code-combat game games">
   							<div class="panel-body">
   							  	<h4><a href="https://codecombat.com/">CodeCombat</a></h4>
   							  	<p>Learn to program by helping a warrior defeat monsters and navigate mazes. Limited play is free and you have the option of paying for access to more content</p>
 							</div>
 						</div>
-						<div class="panel panel-success">
+						<div class="panel panel-success codeingame game games">
   							<div class="panel-body">
   								<h4><a href="https://www.codingame.com/start">CodeinGame</a></h4>
   								<p>Similar to CodeCombat, but arguably shinier... CodeinGame assists in learning a variety of programming languages by coding certain challenges and creating objectives.</p>
 							</div>
 						</div>
-						<div class="panel panel-success">
+						<div class="panel panel-success google course courses free-courses free-course">
+  							<div class="panel-body">
+  								<h4><a href="https://developers.google.com/training/web/">Google Developer Training</a></h4>
+  								<p>Take free online courses to improve your web development skills thanks to tech-giant, Google.</p>
+							</div>
+						</div>
+						<div class="panel panel-success course courses free-course free-courses">
   							<div class="panel-body">
   								<h4><a href="https://www.coursera.org/">Coursera</a></h4>
   								<p>Coursera offers "the world's best courses" online. Courses are offered from a multitude of schools such as UPenn, Johns Hopkins University, Stanford, UC San Diego, Duke, Princeton and more. Courses cover a variety of topics, not just computer science. When you sign up for a course you get access to pre-recorded videos and lectures, quizzes and projects.</p>
 							</div>
 						</div>
-						<div class="panel panel-success">
+						<div class="panel panel-success courses course">
   							<div class="panel-body">
   								<h4><a href="https://stackskills.com/">Stack Skills</a></h4>
   								<p>Stack Skills offers a number of online courses and resources at a cost. While many courses cost quite a bit, they frequently have incredible sales where you can buy packages of courses at very reasonable and worthwhile prices.</p>
 							</div>
 						</div>
-						<div class="panel panel-success">
+						<div class="panel panel-success game games tutorial tutorials bash shell command-line git course courses">
   							<div class="panel-body">
   								<h4><a href="http://www.bash.academy/">Bash Academy</a></h4>
   								<p>While this site is somewhat in development, it is a great resource for learning the bash shell language. It includes a guide for reference as well as the option to play an interactive game.</p>
+							</div>
+						</div>
+						<div class="panel panel-success tutorial tutorials git version-control command-line shell">
+  							<div class="panel-body">
+  								<h4><a href="https://www.atlassian.com/git/tutorials/learn-git-with-bitbucket-cloud">Tutorial: Learn Git</a></h4>
+  								<p>An easy-to-follow tutorial that covers all things Git. Learn the benefits of using version control, learn the basics on what git is, learn to set up a repo, save changes, inspect a repo, undo changes and rewrite your git as well as learning how to collaborate using git, and more advanced tips.</p>
 							</div>
 						</div>
 
@@ -146,74 +166,86 @@
 				</div> <!-- ./panel -->	
 			</div> <!-- ./learnToCode-->
 
-			<div class="frameworkDocumentation">
-				<div class="panel panel-success">
+			<div class="frameworkDocu" style="display: none">
+				<div class="panel panel-success framework frameworks languages documentation">
 					<div class="panel-heading center">
 						<h3>Framework &amp; Language Documentation</h3>
-						<p>Here, you will find documentation for JS and a number of frameworks</p>
+						<p>Here, you will find documentation for JS and a number of frameworks as well as some useful sites to explain some JavaScript topics</p>
 					</div> <!-- ./panel-heading -->
 					<div class="panel-body">
-						<div class="panel panel-success">
+						<div class="panel panel-success javascript syntax">
   							<div class="panel-body">
   								<h4><a href="https://betterexplained.com/articles/the-single-page-javascript-overview/">Single-Page JavaScript Overview</a></h4>
   								<p>This is a one-page resource for JavaScript with a focus on the essentials of syntax.</p>
 							</div>
 						</div>
-						<div class="panel panel-success">
+						<div class="panel panel-success javascript tutorial video tutorials">
+  							<div class="panel-body">
+  								<h4><a href="https://egghead.io/lessons/core-javascript-function-scope-basics">Egghead Video Tutorial: JavaScript Function Scope Basics</a></h4>
+  								<p>A clear and brief tutorial covering JS function scope basics. Egghead also has a number of other useful tutorials available for free and the option to access more advanced topics with a paid membership. A list of the courses is available <a href="https://egghead.io/courses">here</a>.</p>
+							</div>
+						</div>
+						<div class="panel panel-success api ibm watson ibm-watson">
+  							<div class="panel-body">
+  								<h4><a href="https://www.ibm.com/watson/developercloud/">IBM Watson Developer Cloud</a></h4>
+  								<p>Incredible IBM Watson APIs with a multitude of functions. Looking for a NLP? Vision? Speech? Data APIs? Watson gives you the tools and documentation to use cognitive and deep learning advanced services in your next project.</p>
+							</div>
+						</div>
+						<div class="panel panel-success algorithms algorithm sort sorting">
   							<div class="panel-body">
   							  	<h4><a href="https://www.nczonline.net/blog/tag/computer-science/"></a></h4>
   							  	<p>Some links to explanations of basic sorting algorithms, data structures and more.</p>
 							</div>
 						</div>
-						<div class="panel panel-success">
+						<div class="panel panel-success reference w3schools html html5 css css3 javascript">
   							<div class="panel-body">
   								<h4><a href="http://www.w3schools.com/">W3Schools</a></h4>
   								<p>The world's largest resource for HTML, CSS, JavaScript and more.</p>
 							</div>
 						</div>
-						<div class="panel panel-success">
+						<div class="panel panel-success reference html html5 css css3 javascript">
   							<div class="panel-body">
   								<h4><a href="https://developer.mozilla.org/en-US/">Mozilla Developer Network</a></h4>
   								<p>MDN is an open learning platform for web technologies and softwares including HTML, CSS, JavaScript and more.</p>
 							</div>
 						</div>
-						<div class="panel panel-success">
+						<div class="panel panel-success jquery javascript api">
   							<div class="panel-body">
   							  	<h4><a href="http://api.jquery.com/">jQuery</a></h4>
   							  	<p>jQuery is an easy to use, fast and concise JavaScript library that was created to simplify HTML document traversing, event handling, animating and AJAX interactions for faster web development.</p>
 							</div>
 						</div>
-						<div class="panel panel-success">
+						<div class="panel panel-success angular javascript typescript angular2 angularjs angularjs2">
   							<div class="panel-body">
   								<h4><a href="https://angular.io/docs/ts/latest/">Angular2</a></h4>
   								<p>Angular is an MVC-type framework with vast popularity. It offers two-way data binding between models and views which allows to automatic updates on both sides when there is a data change. It also enables users to buld reusable View components and provides a services framework to allow easy backend-frontend server communication.</p>
 							</div>
 						</div>
-						<div class="panel panel-success">
+						<div class="panel panel-success react reactjs">
   							<div class="panel-body">
   								<h4><a href="https://facebook.github.io/react/">React</a></h4>
   								<p>Developed by Facebook and other major tech companies, React is an open source project that describes itself as a "JavaScript library for building user interfaces". It focuses primarily on the "view" piece of MVC. It provides a component layer that makes it easier to make and combine UI elements. React optimizes rendering and implements one-way reactive data flow that makes it easier to understand than other frameworks.</p>
 							</div>
 						</div>
-						<div class="panel panel-success">
+						<div class="panel panel-success backbone backbonejs">
   							<div class="panel-body">
   								<h4><a href="http://backbonejs.org/">Backbone</a></h4>
   								<p>Backbone.js includes everything you need to build a single page application without offering unnecessary complexity by providing a full MVC framework as well as routing. The "models" allow for key-value binding and custom events for handling data changes. The "views" have declarative event hanging and the router handles URL and state management. "Collections" connect to rich RESTful APIs with a wide variety of functions.</p>
 							</div>
 						</div>
-						<div class="panel panel-success">
+						<div class="panel panel-success underscore underscorejs">
   							<div class="panel-body">
   								<h4><a href="http://underscorejs.org/">Underscore</a></h4>
   								<p>Underscore is a JavaScript library that provides a whole suite of very useful functional programming helpers without extending any built-in objects.</p>
 							</div>
 						</div>
-						<div class="panel panel-success">
+						<div class="panel panel-success socket socketio">
   							<div class="panel-body">
   								<h4><a href="http://socket.io/">Socket</a></h4>
   								<p>Socket allows for real-time communication between the client and a server. Socket is divided into the client library that runs from the browser and the server library that is built on top of Node.js. Socket is great for instant-messaging platforms, real-time GPS locating, interactive document collaboration and more.</p>
 							</div>
 						</div>
-						<div class="panel panel-success">
+						<div class="panel panel-success node nodejs">
   							<div class="panel-body">
   								<h4><a href="https://nodejs.org/en/docs/">Node</a></h4>
   								<p>Node is an event driven server-side framework. It is built on top of Google's V8 JavaScript engine to help build interaction-vigorous apps such as community sites, content streaming sites, feature-heavy apps and more.</p>
@@ -223,50 +255,62 @@
 				</div> <!-- ./panel -->	
 			</div> <!-- ./frameworkDocumentation-->
 
-			<div class="practiceProblems">
-				<div class="panel panel-success">
+			<div class="practiceProbs" style="display: none">
+				<div class="panel panel-success practice practice-problems problems questions">
 					<div class="panel-heading center">
 						<h3>Practice Problems</h3>
 						<p>Here, you will find links to a number of JavaScript practice problems</p>
 					</div> <!-- ./panel-heading -->
 					<div class="panel-body">
-						<div class="panel panel-success">
+						<div class="panel panel-success book javascript">
   							<div class="panel-body">
   								<h4><a href="http://www.asmarterwaytolearn.com/js/index-of-exercises.html">Smarter Way to Learn: Exercises</a></h4>
   								<p>The practive problems from the book,<em>A Smarter Way to Learn JavaScript</em>.</p>
 							</div>
 						</div>
-						<div class="panel panel-success">
+						<div class="panel panel-success book javascript">
+  							<div class="panel-body">
+  								<h4><a href="http://eloquentjavascript.net/code/">Eloquent JavaScript Book Code Sandbox</a></h4>
+  								<p>If you have access to the Eloquent JavaScript book by Marijn Haverbeke (pssst... it's available as a pdf <a href="http://eloquentjavascript.net/Eloquent_JavaScript.pdf">here</a>), this is the online code sandbox for the practice problems available at the end of every chapter.</p>
+							</div>
+						</div>
+						<div class="panel panel-success angular angular2 angularjs book algorithms algorithm functions function reference javascript">
+  							<div class="panel-body">
+  								<h4><a href="https://github.com/CodeCraftSchoolofTechnology/textbook">A JavaScript "Textbook" as per CodeCraft, my bootcamp!</a></h4>
+  								<p>A brief "textbook" that offers brief overviews of algorithms, functions, MongoDB/Mongoose, and Angular. In the works.</p>
+							</div>
+						</div>
+						<div class="panel panel-success array arrays object objects">
   							<div class="panel-body">
   								<h4><a href="https://erty.me/access/">Access Practice</a></h4>
   								<p>A great resource (built by my bootcamp instructor, Erty!) to practice accessing elements in arrays, objects, arrays of arrays, objects of arrays, arrays of objects, etc.</p>
 							</div>
 						</div>
-						<div class="panel panel-success">
+						<div class="panel panel-success algorithms algorithm">
   							<div class="panel-body">
   								<h4><a href="https://adriann.github.io/programming_problems.html">Simple Programming Problems</a></h4>
   								<p>A list of well-thought out problems that are great for practicing thinking like a programmer. They are split into categories such as "elementary", "intermediate", and "advanced"</p>
 							</div>
 						</div>
-						<div class="panel panel-success">
+						<div class="panel panel-success html html5 css css3 w3schools">
   							<div class="panel-body">
   							  	<h4>W3Schools Exercises: <a href="http://www.w3schools.com/html/exercise.asp">HTML</a>, <a href="http://www.w3schools.com/css/exercise.asp">CSS</a></h4>
   							  	<p>These are brief exercises with answers.</p>
 							</div>
 						</div>
-						<div class="panel panel-success">
+						<div class="panel panel-success projecteuler project-euler algorithm algorithms">
   							<div class="panel-body">
   								<h4><a href="https://projecteuler.net/">Project Euler</a></h4>
   								<p>A large, popular list of tricky problems where many problems build on previous code. By creating a login, the site will check you answers and track your progress.</p>
 							</div>
 						</div>
-						<div class="panel panel-success">
+						<div class="panel panel-success game games">
   							<div class="panel-body">
   								<h4><a href="https://coderbyte.com/challenges/">CoderByte Challenges</a></h4>
   								<p>A large list of challenges to help you practice your coding skills that allows you to check your code against other coders.</p>
 							</div>
 						</div>
-						<div class="panel panel-success">
+						<div class="panel panel-success game games">
   							<div class="panel-body">
   								<h4><a href="https://codefights.com/">CodeFights</a></h4>
   								<p>Test your coding skills in five different game modes including timed trials, against other coders, and more.</p>
@@ -276,26 +320,26 @@
 				</div> <!-- ./panel -->	
 			</div> <!-- ./practiceProblems-->
 
-			<div class="interviewResources">
-				<div class="panel panel-success">
+			<div class="interviewResources" style="display: none">
+				<div class="panel panel-success interviews interviews interview-resources interview-prep algorithms algorithm practice practice-questions practice-problems">
 					<div class="panel-heading center">
 						<h3>Interview Resources</h3>
 						<p>Here, you will find links to a number of technical interview resources and practice problems</p>
 					</div> <!-- ./panel-heading -->
 					<div class="panel-body">
-						<div class="panel panel-success">
+						<div class="panel panel-success interview-cake">
   							<div class="panel-body">
   								<h4><a href="hhttps://www.interviewcake.com/">Interview Cake</a></h4>
   								<p>Absolutely the best interview prep site I have found. While you have to pay a steep fee to access the full list of questions, you can sign up for weekly interview question emails and have access to a couple of the questions for free. The founder of this site values individual help and feedback. This is truly the only resource on the internet like it.</p>
 							</div>
 						</div>
-						<div class="panel panel-success">
+						<div class="panel panel-success leetcode leet-code">
   							<div class="panel-body">
   								<h4><a href="https://leetcode.com/">LeetCode</a></h4>
   								<p>LeetCode Online Judge is a platform for prepping for technical interviews where you choose a problem, solve it and then submit it to see if you solved it correctly.</p>
 							</div>
 						</div>
-						<div class="panel panel-success">
+						<div class="panel panel-success reddit">
   							<div class="panel-body">
   								<h4><a href="https://www.reddit.com/r/cscareerquestions/comments/20ahfq/heres_a_pretty_big_list_of_programming_interview/">Reddit user's large list of technical interview questions</a></h4>
   								<p>A list of programming questions compiled by a Reddit user while they studied for four big interviews.</p>
@@ -313,43 +357,43 @@
   								<p>Another list of interview questions-- says front-end, but applicable for general SWE positions</p>
 							</div>
 						</div>				
-						<div class="panel panel-success">
+						<div class="panel panel-success course courses free-course free-courses">
   							<div class="panel-body">
   								<h4><a href="https://www.coursera.org/learn/cs-tech-interview">Coursera Course: Mastering the Software Engineering Interview</a></h4>
   								<p>A Coursera course focusing on preparation for SWE interviews</p>
 							</div>
 						</div>
-						<div class="panel panel-success">
+						<div class="panel panel-success video google">
   							<div class="panel-body">
   								<h4><a href="https://www.youtube.com/watch?v=oWbUtlUhwa8">Video: Candidate Coaching Session for Technical Interviewing</a></h4>
   								<p>A video focused on the Google technical interview, but useful for anyone preparing for a google interview.</p>
 							</div>
 						</div>	
-						<div class="panel panel-success">
+						<div class="panel panel-success article">
   							<div class="panel-body">
   								<h4><a href="http://www.pervasivecode.com/blog/2012/03/09/tips-for-interviewing-at-large-tech-companies/">Article: Tips for Programmer Interviews at Large Tech Companies</a></h4>
-  								<p>Read for tips about intekrviewing with larger companies and how that may differ from interviewing with a startup.</p>
+  								<p>Read for tips about interviewing with larger companies and how that may differ from interviewing with a startup.</p>
 							</div>
 						</div>
-						<div class="panel panel-success">
+						<div class="panel panel-success article">
   							<div class="panel-body">
   								<h4><a href="http://blog.sandglaz.com/how-to-interview-and-hire-junior-developers">Article: How to Interview and Hire Junior Developers</a></h4>
   								<p>Read for a better understanding as to how companies are viewing interviews from the other side.</p>
 							</div>
 						</div>
-						<div class="panel panel-success">
+						<div class="panel panel-success article javascript">
   							<div class="panel-body">
   								<h4><a href="https://medium.freecodecamp.com/3-questions-to-watch-out-for-in-a-javascript-interview-725012834ccb#.gi1todfkj">Article: 3 JavaScript Questions to Watch Out for During Coding Interviews</a></h4>
   								<p>Read for three "gotcha"s popular in JavaScript technical interviews.</p>
 							</div>
 						</div>
-						<div class="panel panel-success">
+						<div class="panel panel-success google">
   							<div class="panel-body">
   								<h4><a href="https://www.linkedin.com/pulse/interviewing-google-heres-6-things-you-absolutely-need-anthony-mays?trk=v-feed&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_recent_activity_details_all%3B11pSliBpaL3F82Gp3SNhsA%3D%3D">Article: Interviewing at Google? Here's 6 Things You Absolutely Need To Do</a></h4>
   								<p>Helpful regardless of interviewing with Google-- 6 tips to practice for any technical interview</p>
 							</div>
 						</div>
-						<div class="panel panel-success">
+						<div class="panel panel-success javascript article">
   							<div class="panel-body">
   								<h4>Article series: Master the JavaScript Interview</h4>
   								<p>Read for explanations of frequent "Gotcha" topics in JavaScript interviews.</p>
@@ -366,11 +410,283 @@
 				</div> <!-- ./panel -->	
 			</div> <!-- ./practiceProblems-->
 
+			<div class="bigOResources" style="display: none">
+				<div class="panel panel-success big-o big-o-complexity time-complexity space-complexity time-space-complexity space-time-complexity complexity algorithm-complexity optimization">
+					<div class="panel-heading center">
+						<h3>Big O Resources</h3>
+						<p>Here, you will find resources for Big O complexity</p>
+					</div> <!-- ./panel-heading -->
+					<div class="panel-body">
+						<div class="panel panel-success">
+  							<div class="panel-body">
+  								<h4><a href="http://bigocheatsheet.com/">Big O Cheat Sheet</a></h4>
+  								<p>A must-bookmark resource for any developer concerned with optimization. This page has charts and graphs to reference when needing to know the space/time complexity of common sorting algorithms or data structures.</p>
+							</div>
+						</div>
+						<div class="panel panel-success stack-overflow">
+  							<div class="panel-body">
+  								<h4><a href="http://stackoverflow.com/questions/487258/what-is-a-plain-english-explanation-of-big-o-notation">Plain-English explanation of Big-O</a></h4>
+  								<p>This is a very helpful Stack Overflow answer that gives a clear, plain-English explanation of Big-O complexity.</p>
+							</div>
+						</div>
+						<div class="panel panel-success">
+  							<div class="panel-body">
+  							  	<h4><a href="https://justin.abrah.ms/computer-science/big-o-notation-explained.html">Big-O Notation Explained By a Self-Taught Programmer</a></h4>
+  							  	<p>If you are like me and you don't have a formal CS degree, any explanations of CS concepts stripped of the cerebral, technical jargon are incredibly helpful. Here, a self-taught programmer explains Big-O in an easily accessible way.</p>
+							</div>
+						</div>
+						<div class="panel panel-success">
+  							<div class="panel-body">
+  								<h4><a href="https://justin.abrah.ms/computer-science/how-to-calculate-big-o.html">Calculating Big-O: Explained By A Self-Taught Programmer</a></h4>
+  								<p>Explained by the same self-taught programmer, Justin Abrahms, this link is a plain-English explanation as to how to calculate Big-O complexityg now that you understand the underlying concepts</p>
+							</div>
+						</div>
+						<div class="panel panel-success interviewcake interview-cake">
+  							<div class="panel-body">
+  								<h4><a href="https://www.interviewcake.com/article/javascript/big-o-notation-time-and-space-complexity?">Interview Cake: Big-O Notation: Using not-boring math to measure code's efficiency</a></h4>
+  								<p>Interview Cake is back at it with a concise and clear explanation of Big-O notation. Interview Cake also has a number of other great articles that cover a vast selection of topics that are incredibly helpful for any programmer-- and you don't need to pay for the full version for access!</p>
+							</div>
+						</div>
+
+					</div> <!-- ./panel-body -->
+				</div> <!-- ./panel -->	
+			</div> <!-- ./bigO -->
+
+			<div class="stylingResources" style="display: none">
+				<div class="panel panel-success styling style css css3 design">
+					<div class="panel-heading center">
+						<h3>Styling Resources</h3>
+						<p>Here, you will find resources styling and helpful CSS links</p>
+					</div> <!-- ./panel-heading -->
+					<div class="panel-body">
+						<div class="panel panel-success compatibility">
+  							<div class="panel-body">
+  								<h4><a href="http://caniuse.com/">Can I Use?</a></h4>
+  								<p>Are you struggling with browser compatibility? While not only geared for CSS and styling, this useful site allows you to search certain methods and will output a clear chart that shows the compatibility of whatever methods you are trying to use.</p>
+							</div>
+						</div>
+						<div class="panel panel-success adobe color colors color-wheel">
+  							<div class="panel-body">
+  								<h4><a href="https://color.adobe.com/create/color-wheel/">Adobe Color CC</a></h4>
+  								<p>Praise be to Adobe-- do you want to find colors that complement each other? Need a resource for finding the HEX codes for different colors of the same shade? Simply want the RGB color code from a specific HEX code or vise versa? Enter the Adobe Color CC-- an easy to use and clear way to find any colors you want and colors you didn't know you needed.</p>
+							</div>
+						</div>
+						<div class="panel panel-success">
+  							<div class="panel-body">
+  								<h4><a href="http://cssdb.co/">CSSdb</a></h4>
+  								<p>A site that has curated a master list of CSS, Sass, LESS and Stylus libraries for easy locating.</p>
+							</div>
+						</div>
+						<div class="panel panel-success bootstap twitter-bootstrap">
+  							<div class="panel-body">
+  								<h4><a href="http://getbootstrap.com/">Twitter Bootstrap</a></h4> 
+  								<p>...'nuf said.</p>
+							</div>
+						</div>
+						<div class="panel panel-success font-awesome font icons icon glyphicon glyphicons library">
+  							<div class="panel-body">
+  								<h4><a href="http://fontawesome.io/icons/">Font Awesome</a></h4>
+  								<p>One of my most used CSS libraries-- Font Awesome gives you hundreds of icons/glyphicons for use in your next web page. Especially helpful if you are looking for navigation icons and social icons.</p>
+							</div>
+						</div>
+						<div class="panel panel-success google google-fonts fonts font library">
+  							<div class="panel-body">
+  								<h4><a href="https://fonts.google.com">Google Fonts</a></h4>
+  								<p>Another of my favorite sites-- Google Fonts has a ton of easy-to-use fonts for giving your next site that extra flair it deserves.</p>
+							</div>
+						</div>
+						<div class="panel panel-success article">
+  							<div class="panel-body">
+  								<h4><a href="http://www.awwwards.com/what-are-frameworks-22-best-responsive-css-frameworks-for-web-design.html">Article: 22 Best Responsive CSS Frameworks</a></h4>
+  								<p>Want to easily make your site responsive but don't want to use Bootstrap? Check out this article that lists 22 of the best responsive CSS frameworks ready to use right at your fingertips.</p>
+							</div>
+						</div>
+						<div class="panel panel-success article tutorial tutorials">
+  							<div class="panel-body">
+  								<h4><a href="https://speckyboy.com/25-css-snippets-for-some-of-the-most-common-and-frustrating-tasks/">Article: 25 CSS Snippets for Some of the Most Common and Frustrating Tasks</a></h4>
+  								<p>Are you trying to add rounded corners to your div but struggling with your code? Are you fighting with centering content vertically? Trying to make your footer sticky? This site will give you the code snippets for all of this and many more intricate CSS hacks that sometimes fly under the radar.</p>
+							</div>
+						</div>
+						<div class="panel panel-success tutorial tutorials">
+  							<div class="panel-body">
+  							  	<h4><a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">A Complete Guide to CSS Flexbox</a></h4>
+  							  	<p>A clear explanation of CSS property flexbox. Check out the rest of this site, <a href="https://css-tricks.com/">CSS Tricks</a> for more explanations and examples of a number of CSS capabilities.</p>
+							</div>
+						</div>
+						<div class="panel panel-success tooltip tooltips balloon">
+  							<div class="panel-body">
+  								<h4><a href="http://kazzkiq.github.io/balloon.css/">Balloon.css</a></h4>
+  								<p>Add tooltips with just a few lines of CSS and no JavaScript!</p>
+							</div>
+						</div>
+						<div class="panel panel-success spinner spinners loading">
+  							<div class="panel-body">
+  								<h4><a href="https://boguz.github.io/Spinners/">CSS Spinners</a></h4>
+  								<p>HTML and CSS loading icon animations ready for you to add ot your next site!</p>
+							</div>
+						</div>
+						<div class="panel panel-success siimple">
+  							<div class="panel-body">
+  								<h4><a href="http://siimple.juanes.xyz/">Siimple</a></h4>
+  								<p>A minimal CSS framework for flat and clean designs that is built with SASS/SCSS</p>
+							</div>
+						</div>
+						<div class="panel panel-success stylelint linter">
+  							<div class="panel-body">
+  								<h4><a href="https://stylelint.io/">Style Lint</a></h4>
+  								<p>Is your CSS a mess? Install this CSS linter that will help enforce best practices, catch errors and help you become a more elegant coder.</p>
+							</div>
+						</div>
+					</div> <!-- ./panel-body -->
+				</div> <!-- ./panel -->	
+			</div> <!-- ./stylingResources -->
+
+			<div class="miscResources" style="display: none">
+				<div class="panel panel-success other">
+					<div class="panel-heading center">
+						<h3>Miscellaneous Resources</h3>
+						<p>Here, you will find other useful resources that simply didn't fit cleanly into a preestablished category</p>
+					</div> <!-- ./panel-heading -->
+					<div class="panel-body">
+						<div class="panel panel-success validation validator">
+  							<div class="panel-body">
+  								<h4><a href="https://validator.w3.org/">Markup Validation Service</a></h4>
+  								<p>Run your code through this markup validator service to check the validity of web documents in HTML, XHTML, SMIL, MathML, etc. There is also a <a href="http://jigsaw.w3.org/css-validator/">CSS validation service</a>, <a href="https://validator.w3.org/checklink">a link checker</a>, and more <a href="http://w3c.github.io/developers/tools/">validators and tools</a>.</p>
+							</div>
+						</div>
+						<div class="panel panel-success hack heroku static-site">
+  							<div class="panel-body">
+  								<h4><a href="http://blog.teamtreehouse.com/deploy-static-site-heroku">Deploy a Static Site to Heroku</a></h4>
+  								<p>Heroku is meant for hosting only dynamic applications which is a real bummer if you're like me and write a lot of static sites. If you don't feel like building a tiny node.js server, check out this blog post. It explains a simple and easy hack for being able to host static sites on Heroku with only one line of PHP.</p>
+							</div>
+						</div>
+						<div class="panel panel-success codepen code-pen">
+  							<div class="panel-body">
+  								<h4><a href="http://codepen.io/">CodePen</a></h4> 
+  								<p>A fantastic online "playground for the front end web". A great online resource to build a test case for bugs, find examples for design patterns and inspiration for projects. A great resource for sharing code for presentations and much much more.</p>
+							</div>
+						</div>
+						<div class="panel panel-success git">
+  							<div class="panel-body">
+  								<h4><a href="https://www.git-tower.com/blog/content/posts/54-git-cheat-sheet/git-cheat-sheet-large01.png">Git Cheat Sheet</a></h4>
+  								<p>A brief, useful reference for GIT commands.</p>
+							</div>
+						</div>
+						<div class="panel panel-success algorithms algorithm api">
+  							<div class="panel-body">
+  								<h4><a href="https://algorithmia.com/">Algorithmia: Marketplace for Algorithms</a></h4>
+  								<p>A good reference for many algorithms that are available for your use at a cost per API call + compute time. Sometimes just a good place to get ideas.</p>
+							</div>
+						</div>
+						<div class="panel panel-success agile trello collaboration collaborate">
+  							<div class="panel-body">
+  								<h4><a href="https://trello.com/">Trello</a></h4>
+  								<p>Working on a team? Trello will help you work collaboratively and prioritize different aspects of a project. Make cards with different labels; What are aspects of the MVP you are developing? Want to create a card with features that are on the backburner? In an icebox? Look no further. Trello allows you to create boards with lists and cards to prioritize in a way that makes the most sense to your team.</p>
+							</div>
+						</div>
+						<div class="panel panel-success version-control github git">
+  							<div class="panel-body">
+  								<h4><a href="https://desktop.github.com/">GitHub Desktop</a></h4>
+  								<p>Download the GitHub desktop portal for easy commits and collaboration right from your desktop.</p>
+							</div>
+						</div>
+
+					</div> <!-- ./panel-body -->
+				</div> <!-- ./panel -->	
+			</div> <!-- ./miscellaneousResources -->
+
+			<div class="devBooks" style="display: none">
+				<div class="panel panel-success books book pdf pdfs">
+					<div class="panel-heading center">
+						<h3>Development Book PDFs</h3>
+						<p>Here, you will find a number of development books available as PDFs</p>
+					</div> <!-- ./panel-heading -->
+					<div class="panel-body">
+						<div class="panel panel-success html html5">
+  							<div class="panel-body">
+  								<h4><a href="bookPDFs/jshtml1.pdf" onclick="window.open('bookPDFs/jshtml1.pdf', '_blank', 'fullscreen=yes'); return false;">Jump Start HTML5</a></h4>
+  								<p>Learn the basics of HTML5 with this comprehensive book.</p>
+							</div>
+						</div>
+						<div class="panel panel-success css css3 design html html5">
+  							<div class="panel-body">
+  								<h4><a href="bookPDFs/htmlcss2.pdf" onclick="window.open('bookPDFs/htmlcss2.pdf', '_blank', 'fullscreen=yes'); return false;">HTML5 &amp; CSS3 For The Real World</a></h4>
+  								<p>For those with a bit of experience with HTML and CSS, pick up this book for a hands-on approach to building sites through a practical approach.</p>
+							</div>
+						</div>
+						<div class="panel panel-success css css3 design">
+  							<div class="panel-body">
+  								<h4><a href="bookPDFs/csspro1.pdf" onclick="window.open('bookPDFs/csspro1.pdf', '_blank', 'fullscreen=yes'); return false;">CSS Master</a></h4>
+  								<p>Have experience in CSS and want to take your knowledge further? CSS Master is for intermediate-level CSS developers who want to learn how CSS works and how to write it better.</p>
+							</div>
+						</div>
+						<div class="panel panel-success design css css3">
+  							<div class="panel-body">
+  								<h4><a href="bookPDFs/design3.pdf" onclick="window.open('bookPDFs/design3.pdf', '_blank', 'fullscreen=yes'); return false;">The Principles of Beautiful Web Design</a></h4>
+  								<p>Want to jump start your design comprehension? Check out this book that lays out the principles needed to create a well-designed site.</p>
+							</div>
+						</div>
+						<div class="panel panel-success javascript">
+  							<div class="panel-body">
+  								<h4><a href="bookPDFs/jsninja1.pdf" onclick="window.open('bookPDFs/jsninja1.pdf', '_blank', 'fullscreen=yes'); return false;">JavaScript: Novice to Ninja</a></h4>
+  								<p>Learn the basics of JavaScript and continue developing your skills to become a JavaScript ninja!</p>
+							</div>
+						</div>
+						<div class="panel panel-success javascript">
+  							<div class="panel-body">
+  								<h4><a href="bookPDFs/Eloquent_JavaScript.pdf" onclick="window.open('bookPDFs/Eloquent_JavaScript.pdf', '_blank', 'fullscreen=yes'); return false;">Eloquent JavaScript: A Modern Introduction to Programming</a></h4>
+  								<p>An in-depth yet concise mix of principles and pragmatics of all things JavaScript. Assumes a ground-level understanding of programming concepts in JavaScript and may delve into concepts that beginners may not consider "introductory".</p>
+							</div>
+						</div>
+						<div class="panel panel-success javascript mean mean-stack fullstack full-stack angular angularjs html html5 css css3 node nodejs mongo mongodb mongoose express expressjs">
+  							<div class="panel-body">
+  								<h4><a href="bookPDFs/mean1.pdf" onclick="window.open('bookPDFs/mean1.pdf', '_blank', 'fullscreen=yes'); return false;">Full Stack JavaScript Development With MEAN</a></h4>
+  								<p>Take your learning further by learning how to develop full stack applications using modern technologies in HTML, CSS and JavaScript. This book covers the MEAN stack in detail beginning with Node.js, moving to MongoDB, then Express and finally covering AngularJS. <strong>NOTE: This book covers AngularJS, not Angular2 or the upcoming release of Angular 4</strong>.</p>
+							</div>
+						</div>
+						<div class="panel panel-success angular angularjs2 angularjs">
+  							<div class="panel-body">
+  								<h4><a href="bookPDFs/AngularJSBook/ng-book2-r49.pdf" onclick="window.open('bookPDFs/AngularJSBook/ng-book2-r49.pdf', '_blank', 'fullscreen=yes'); return false;">ng-book-2: The Complete Book on AngularJS2</a></h4>
+  								<p>Learn the most recent version of Angular, Angular 2 using this comprehensive guide. <strong>NOTE: While this is the most recent version of Angular, Angular4 (or simply, Angular) is slated to be released around March 2017</strong>.</p>
+							</div>
+						</div>
+						<div class="panel panel-success mobile javascript html html5 css css3">
+  							<div class="panel-body">
+  								<h4><a href="bookPDFs/mobile1.pdf" onclick="window.open('bookPDFs/mobile1.pdf', '_blank', 'fullscreen=yes'); return false;">Build Mobile Websites and Apps for Smart Devices</a></h4>
+  								<p>Learn how to build sites and apps that take advantage of the functionality available in the latest generation of mobile devices, including smart phones and tablets. This book assumes intermediate knowledge of HTML, CSS, and JavaScript.</p>
+							</div>
+						</div>
+						<div class="panel panel-success wordpress html html5 php">
+  							<div class="panel-body">
+  								<h4><a href="bookPDFs/wpant1.pdf" onclick="window.open('bookPDFs/wpant1.pdf', '_blank', 'fullscreen=yes'); return false;">The WordPress Anthology</a></h4>
+  								<p>Get under the hood of WordPress with this book aimed at beginner to intermediate-level web developers seeking to work with WordPress on a fundamental level. For greatest effectiveness, this book assumes ground-level understanding of HTML and PHP.</p>
+							</div>
+						</div>
+						<div class="panel panel-success php">
+  							<div class="panel-body">
+  								<h4><a href="bookPDFs/phppro1.pdf" onclick="window.open('bookPDFs/phppro1.pdf', '_blank', 'fullscreen=yes'); return false;">PHP Master</a></h4>
+  								<p>This book is written to help intermediate PHP developers advance their skills and knowledge to become a PHP master.</p>
+							</div>
+						</div>
+						<div class="panel panel-success business outsource outsourcing">
+  							<div class="panel-body">
+  								<h4><a href="bookPDFs/outsourcing2.pdf" onclick="window.open('bookPDFs/outsourcing2.pdf', '_blank', 'fullscreen=yes'); return false;">Outsourcing Web Projects</a></h4>
+  								<p>Learn how to successfully outsource your web projects with 6 steps to a smarter business.</p>
+							</div>
+						</div>
+						
+
+					</div> <!-- ./panel-body -->
+				</div> <!-- ./panel -->	
+			</div> <!-- ./devBooks -->
+
 		</div> <!-- ./row -->
 	</div>
 
 	
 </body>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<script src="index.js"></script>
 </html>

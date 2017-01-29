@@ -1,5 +1,15 @@
+.jumbotron {
+	padding: 1.5em !important;
+}
+
 .jumbotron h2 {
 	text-align: center;
+	margin-top: 0;
+	padding-bottom: 0.5em;
+}
+
+.jumbotron p {
+	margin: 0;
 }
 
 .center {
