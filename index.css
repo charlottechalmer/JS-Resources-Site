@@ -22,10 +22,14 @@
 	margin-top: 1em;
 }
 
-h4 a, p a {
+h4 a, p a, .articleSeriesLink {
 	color: #5cb85c;
 	text-decoration: underline;
 	transition: 0.5s linear;
+}
+
+.articleSeries {
+	color: #5cb85c;
 }
 
 h4 a:hover, p a:hover{
